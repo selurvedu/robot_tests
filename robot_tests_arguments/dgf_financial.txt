@@ -22,6 +22,8 @@
 -i add_tender_doc
 -i add_tender_illustration
 -i add_tender_vdr
+-i add_item
+  -i delete_item
 -i ask_question_to_tender
   -i answer_question_to_tender
 -i ask_question_to_item

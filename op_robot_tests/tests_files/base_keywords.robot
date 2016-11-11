@@ -56,17 +56,32 @@ Resource           resource.robot
   Run As  ${tender_owner}  Додати Virtual Data Room  ${TENDER['TENDER_UAID']}  http://example.invalid/VDR/4815162342
 
 
-Можливість додати предмет закупівлі в тендер
+${negative}ожливість додати предмет закупівлі в тендер
   ${item}=  Підготувати дані для створення предмету закупівлі  ${USERS.users['${tender_owner}'].initial_data.data['items'][0]['classification']['id']}
-  Run As  ${tender_owner}  Додати предмет закупівлі  ${TENDER['TENDER_UAID']}  ${item}
   ${item_id}=  get_id_from_object  ${item}
   ${item_data}=  Create Dictionary  item=${item}  item_id=${item_id}
   ${item_data}=  munch_dict  arg=${item_data}
   Set To Dictionary  ${USERS.users['${tender_owner}']}  item_data=${item_data}
+  Run Keyword If  '${negative.strip().lower()}' == 'нем'
+  ...      Require Failure  ${tender_owner}
+  ...      Додати предмет закупівлі  ${TENDER['TENDER_UAID']}  ${item}
+  ...      ELSE IF  '${negative.strip().lower()}' == 'м'
+  ...      Run As  ${tender_owner}
+  ...      Додати предмет закупівлі  ${TENDER['TENDER_UAID']}  ${item}
+  ...      ELSE  Fail  This keyword was invoked incorrectly:  ${negative}
 
 
-Можливість видалити предмет закупівлі з тендера
-  Run As  ${tender_owner}  Видалити предмет закупівлі  ${TENDER['TENDER_UAID']}  ${USERS.users['${tender_owner}'].item_data.item_id}
+${negative}ожливість видалити предмет закупівлі з тендера
+  # This is a fallback solution if no items were added beforehand
+  # and/or there is no records about them in item_data
+  ${item_id}=  Get Variable Value  ${USERS.users['${tender_owner}']['item_data']['item_id']}  ${EMPTY}
+  Run Keyword If  '${negative.strip().lower()}' == 'нем'
+  ...      Require Failure  ${tender_owner}
+  ...      Видалити предмет закупівлі  ${TENDER['TENDER_UAID']}  ${item_id}
+  ...      ELSE IF  '${negative.strip()}.lower()' == 'м'
+  ...      Run As  ${tender_owner}
+  ...      Видалити предмет закупівлі  ${TENDER['TENDER_UAID']}  ${item_id}
+  ...      ELSE  Fail  This keyword was invoked incorrectly:  ${negative}
 
 
 Звірити відображення поля ${field} документа ${doc_id} із ${left} для користувача ${username}
