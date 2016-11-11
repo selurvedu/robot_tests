@@ -15,6 +15,7 @@
 -i modify_auction_step
 -i modify_auction_title_ua
 -i modify_auction_guarantee
+-i modify_auction_procuringEntity
 -i modify_auction_periods
 -i modify_tender
 -i add_tender_doc
