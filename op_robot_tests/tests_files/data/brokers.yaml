@@ -55,17 +55,17 @@ Quinta:
             enquiry: [0, 20]
             tender:  [0, 20]
         openua:
-            tender:  [1, 30]
+            tender:  [1, 43200]
         openeu:
-            tender:  [1, 35]
+            tender:  [1, 50400]
         openua_defense:
-            tender:  [0, 30]
+            tender:  [0, 43200]
         esco:
             accelerator: 1440
-            tender:  [0, 30]
+            tender:  [0, 50400]
         open_competitive_dialogue:
             accelerator: 1440
-            tender:  [0, 30]
+            tender:  [0, 43200]
     keywords_file: openprocurement_client
     roles:
         provider:       Tender_User
@@ -221,6 +221,18 @@ Publicbid:
         tender_owner:   Publicbid_Owner
         viewer:         Publicbid_Viewer
     timeout_on_wait: 120
+upetem:
+    intervals:
+        default:
+            enquiry: [1, 10]
+            tender:  [1, 20]
+    keywords_file: upetem
+    roles:
+        provider:       upetem_Provider
+        provider1:      upetem_Provider1
+        tender_owner:   upetem_Owner
+        viewer:         upetem_Viewer
+    timeout_on_wait: 15
 PublicPortal:
     keywords_file: publicportal
     roles:
@@ -340,11 +352,12 @@ alltenders:
     keywords_file: alltenders
     homepage: 'https://prozorro.alltenders.com.ua/?mode=test&notification=off'
     roles:
-        provider:       alltenders_Provider1
-        provider1:      alltenders_Provider2
+        provider:       alltenders_Provider
+        provider1:      alltenders_Provider1
+        provider2:      alltenders_Provider2
         tender_owner:   alltenders_Owner
         viewer:         alltenders_Viewer
-    timeout_on_wait: 65
+    timeout_on_wait: 35
 Kapitalist:
     intervals:
         default:
@@ -367,7 +380,7 @@ pzo:
         belowThreshold:
             enquiry: [0, 25]
             tender:  [0, 25]
-            accelerator: 180
+            accelerator: 1440
         openua:
             tender:  [0, 25]
             accelerator: 1440
@@ -390,14 +403,14 @@ aladdin:
             tender:  [0, 20]
             accelerator: 900
         belowThreshold:
-            enquiry: [0, 15]
-            tender:  [0, 20]
+            enquiry: [0, 60]
+            tender:  [0, 15]
             accelerator: 1440
         openua:
             accelerator: 1440
             tender:  [0, 45]
         openeu:
-            tender:  [0, 45]
+            tender:  [0, 60]
             accelerator: 1440
     keywords_file: aladdin
     roles:
