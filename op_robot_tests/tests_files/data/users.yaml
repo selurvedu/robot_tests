@@ -1,9 +1,10 @@
 users:
     Tender_Owner:
         auth_ds:
-            tenders:  [test.quintagroup.com, test.quintagroup.com]
+            tenders:  [broker, broker]
+            plans:    [test.quintagroup.com, test.quintagroup.com]
             auctions: [test.quintagroup.com, bc698baa8b814908bc75405ed3d63548]
-        api_key:  e9c3ccb8e8124f26941d5f9639a4ebc3
+        api_key:  broker
         broker:   Quinta
         auth_edr: [test.quintagroup.com, f5111c99a97a45348d8165ba8fcf0d62]
         browser:  phantomjs
@@ -11,9 +12,10 @@ users:
         size:     [1400, 900]
     Tender_User:
         auth_ds:
-            tenders:  [test.quintagroup.com, test.quintagroup.com]
+            tenders:  [broker, broker]
+            plans:    [test.quintagroup.com, test.quintagroup.com]
             auctions: [test.quintagroup.com, bc698baa8b814908bc75405ed3d63548]
-        api_key:  e9c3ccb8e8124f26941d5f9639a4ebc3
+        api_key:  broker
         broker:   Quinta
         auth_edr: [test.quintagroup.com, f5111c99a97a45348d8165ba8fcf0d62]
         browser:  phantomjs
@@ -21,9 +23,10 @@ users:
         size:     [1400, 900]
     Tender_User1:
         auth_ds:
-            tenders:  [test.quintagroup.com, test.quintagroup.com]
+            tenders:  [broker, broker]
+            plans:    [test.quintagroup.com, test.quintagroup.com]
             auctions: [test.quintagroup.com, bc698baa8b814908bc75405ed3d63548]
-        api_key:  e9c3ccb8e8124f26941d5f9639a4ebc3
+        api_key:  broker
         broker:   Quinta
         auth_edr: [test.quintagroup.com, f5111c99a97a45348d8165ba8fcf0d62]
         browser:  phantomjs
@@ -31,9 +34,10 @@ users:
         size:     [1400, 900]
     Tender_User2:
         auth_ds:
-            tenders:  [test.quintagroup.com, test.quintagroup.com]
+            tenders:  [broker, broker]
+            plans:    [test.quintagroup.com, test.quintagroup.com]
             auctions: [test.quintagroup.com, bc698baa8b814908bc75405ed3d63548]
-        api_key:  e9c3ccb8e8124f26941d5f9639a4ebc3
+        api_key:  broker
         broker:   Quinta
         auth_edr: [test.quintagroup.com, f5111c99a97a45348d8165ba8fcf0d62]
         browser:  phantomjs
@@ -41,7 +45,8 @@ users:
         size:     [1400, 900]
     Tender_Viewer:
         auth_ds:
-            tenders:  [test.quintagroup.com, test.quintagroup.com]
+            tenders:  [broker, broker]
+            plans:    [test.quintagroup.com, test.quintagroup.com]
             auctions: [test.quintagroup.com, bc698baa8b814908bc75405ed3d63548]
         api_key:  ""
         broker:   Quinta
@@ -297,6 +302,36 @@ users:
         browser:  chrome
         position: [450, 0]
         size:     [1000, 720]
+    upetem_Owner:
+        broker:   upetem
+        homepage: "https://80.92.239.165/"
+        login:    testuser_tender_owner@yopmail.com
+        password: P@ssw0rd
+        browser:  chrome
+        position: [0, 0]
+        size:     [1200, 900]
+    upetem_Provider:
+        broker:   upetem
+        homepage: "https://80.92.239.165/"
+        login:    testuser_provider@yopmail.com
+        password: P@ssw0rd
+        browser:  chrome
+        position: [0, 450]
+        size:     [1000, 800]
+    upetem_Provider1:
+        broker:   upetem
+        homepage: "https://80.92.239.165/"
+        login:    testuser_provider1@yopmail.com
+        password: P@ssw0rd
+        browser:  chrome
+        position: [450, 0]
+        size:     [1000, 800]
+    upetem_Viewer:
+        broker:   upetem
+        homepage: "https://80.92.239.165/"
+        browser:  chrome
+        position: [450, 450]
+        size:     [1000, 800]
     PublicPortal_Viewer:
         broker:   PublicPortal
         homepage: "https://qa23.prozorro.gov.ua/tender/search/"
@@ -519,7 +554,7 @@ users:
         browser:  chrome
         position: [0, 0]
         size:     [1210, 800]
-    alltenders_Provider1:
+    alltenders_Provider:
         broker:   alltenders
         homepage: 'https://prozorro.alltenders.com.ua/?mode=test&notification=off'
         login:    member_01@i.ua
@@ -527,10 +562,18 @@ users:
         browser:  chrome
         position: [0, 0]
         size:     [1210, 800]
-    alltenders_Provider2:
+    alltenders_Provider1:
         broker:   alltenders
         homepage: 'https://prozorro.alltenders.com.ua/?mode=test&notification=off'
         login:    member_02@i.ua
+        password: 111
+        browser:  chrome
+        position: [0, 0]
+        size:     [1210, 800]
+    alltenders_Provider2:
+        broker:   alltenders
+        homepage: 'https://prozorro.alltenders.com.ua/?mode=test&notification=off'
+        login:    member03@i.ua
         password: 111
         browser:  chrome
         position: [0, 0]
