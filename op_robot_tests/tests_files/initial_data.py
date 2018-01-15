@@ -116,10 +116,6 @@ def test_tender_data(params,
         "items": [],
         "features": []
     }
-    accelerator = accelerator \
-        if accelerator else params['intervals']['accelerator']
-    data['procurementMethodDetails'] = 'quick, ' \
-        'accelerator={}'.format(accelerator)
     data["procuringEntity"]["kind"] = "other"
     if data.get("mode") == "test":
         data["title"] = u"[ТЕСТУВАННЯ] {}".format(data["title"])
