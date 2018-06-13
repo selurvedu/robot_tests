@@ -1,4 +1,4 @@
--v MODE:belowThreshold
+-v MODE:openeu
 
 -v NUMBER_OF_ITEMS:1
 -v NUMBER_OF_LOTS:1
@@ -40,7 +40,6 @@
 -i modify_tender_after_questions
 -i modify_lot_after_questions
 
--i make_bid_before_tendering_period
 -i make_bid_without_related_lot
 -i make_bid_without_parameters
 -i make_bid_by_provider
@@ -58,9 +57,39 @@
 -i ask_question_to_item_after_tendering_period
 -i ask_question_to_lot_after_tendering_period
 
+-i open_tender_view
+-i open_modify_tender_in_tendering_period
+  -i open_confirm_first_bid
+  -i open_confirm_second_bid
+
+-i openeu_make_bid_doc_private_by_provider
+-i openeu_add_financial_bid_doc_by_provider
+-i openeu_add_qualification_bid_doc_by_provider
+-i openeu_add_eligibility_bid_doc_by_provider
+
+-i pre-qualification_add_doc_to_tender
+-i pre-qualification_add_doc_to_lot
+
+-i pre-qualification_view
+
+#-i pre-qualifications_check_by_edrpou
+
+-i pre-qualification_add_doc_to_first_bid
+-i pre-qualification_approve_first_bid
+
+-i pre-qualification_add_doc_to_second_bid
+-i pre-qualification_reject_second_bid
+  -i pre-qualification_cancel_second_bid_qualification
+-i pre-qualification_approve_second_bid
+
+-i pre-qualification_approve_qualifications
+
 -i auction
 
 -i qualification_add_doc_to_first_award
+
+#-i qualifications_check_by_edrpou
+
 -i qualification_approve_first_award
 -i qualification_cancel_first_award_qualification
 -i qualification_add_doc_to_second_award

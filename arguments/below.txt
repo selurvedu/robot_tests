@@ -1,4 +1,4 @@
- -v MODE:openua
+-v MODE:belowThreshold
 
 -v NUMBER_OF_ITEMS:1
 -v NUMBER_OF_LOTS:1
@@ -21,24 +21,26 @@
 -i add_lot_doc
 -i modify_lot_value_amount
 -i add_lot
+  -i delete_lot
 -i add_item
--i delete_item
--i delete_lot
+  -i delete_item
 -i add_tender_meat
--i delete_tender_meat
+  -i delete_tender_meat
 -i add_lot_meat
--i delete_lot_meat
+  -i delete_lot_meat
 -i add_item_meat
   -i delete_item_meat
 
 -i ask_question_to_tender
   -i answer_question_to_tender
-
+-i ask_question_to_item
+  -i answer_question_to_item
 -i ask_question_to_lot
   -i answer_question_to_lot
-
 -i modify_tender_after_questions
 -i modify_lot_after_questions
+
+-i make_bid_before_tendering_period
 -i make_bid_without_related_lot
 -i make_bid_without_parameters
 -i make_bid_by_provider
@@ -56,14 +58,6 @@
 -i ask_question_to_item_after_tendering_period
 -i ask_question_to_lot_after_tendering_period
 
--i open_modify_tender_in_tendering_period
-  -i open_confirm_first_bid
-  -i open_confirm_second_bid
-
--i document_service
-
--i auction_url
-
 -i auction
 
 -i qualification_add_doc_to_first_award
@@ -72,7 +66,19 @@
 -i qualification_add_doc_to_second_award
 -i qualification_approve_second_award
 
--i contract_sign
--i modify_contract
 -i contract_view
+-i modify_contract
 -i add_doc_to_contract
+-i contract_sign
+
+-i find_contract
+-i access_contract
+-i submit_change
+-i view_change
+-i upload_change_document
+-i modify_change
+-i apply_change
+-i add_contract_doc
+-i termination_reasons
+-i amount_paid
+-i contract_termination

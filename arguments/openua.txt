@@ -1,4 +1,4 @@
--v MODE:openeu
+-v MODE:openua
 
 -v NUMBER_OF_ITEMS:1
 -v NUMBER_OF_LOTS:1
@@ -62,34 +62,10 @@
   -i open_confirm_first_bid
   -i open_confirm_second_bid
 
--i openeu_make_bid_doc_private_by_provider
--i openeu_add_financial_bid_doc_by_provider
--i openeu_add_qualification_bid_doc_by_provider
--i openeu_add_eligibility_bid_doc_by_provider
-
--i pre-qualification_add_doc_to_tender
--i pre-qualification_add_doc_to_lot
-
--i pre-qualification_view
-
-#-i pre-qualifications_check_by_edrpou
-
--i pre-qualification_add_doc_to_first_bid
--i pre-qualification_approve_first_bid
-
--i pre-qualification_add_doc_to_second_bid
--i pre-qualification_reject_second_bid
-  -i pre-qualification_cancel_second_bid_qualification
--i pre-qualification_approve_second_bid
-
--i pre-qualification_approve_qualifications
-
 -i auction
 
 -i qualification_add_doc_to_first_award
-
 #-i qualifications_check_by_edrpou
-
 -i qualification_approve_first_award
 -i qualification_cancel_first_award_qualification
 -i qualification_add_doc_to_second_award
