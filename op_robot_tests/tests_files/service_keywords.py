@@ -502,27 +502,47 @@ def munch_dict(arg=None, data=False):
     return munchify(arg)
 
 
-def get_id_from_object(obj):
+def get_id_from_object(obj, keys=('title', 'description')):
+    if not isinstance(obj, dict):
+        raise TypeError('expected %s, got %s' % (dict, type(obj)))
+
     regex = r'(^[filq]-[0-9a-fA-F]{8}): '
 
-    title = obj.get('title', '')
-    if title:
-        if not isinstance(title, STR_TYPES):
-            raise TypeError('title must be one of %s' % str(STR_TYPES))
-        obj_id = re.match(regex, title)
-        if obj_id and len(obj_id.groups()) >= 1:
-            return obj_id.group(1)
+    def _get_id(obj, key):
+        if key not in obj:
+            # Not appending to `error_list` here in order to indicate that
+            # the key is not present in the dictionary
+            return None
 
-    description = obj.get('description', '')
-    if description:
-        if not isinstance(description, STR_TYPES):
-            raise TypeError('description must be one of %s' % str(STR_TYPES))
-        obj_id = re.match(regex, description)
-        if obj_id and len(obj_id.groups()) >= 1:
-            return obj_id.group(1)
+        value = obj.get(key)
 
-    raise VaueError('could not find object ID in "title": "%s", '
-                    '"description": "%s"' % (title, description))
+        if value is not None:
+            if not isinstance(value, STR_TYPES):
+                raise TypeError('%s must be one of %s' % (key, str(STR_TYPES)))
+
+            value_match = re.match(regex, value)
+            if value_match and len(value_match.groups()) >= 1:
+                return value_match.group(1)
+
+        error_list.append('%s: %s' % (repr(key), repr(value)))
+        return None
+
+    error_list = []
+
+    for key in keys:
+        _id = _get_id(obj, key)
+        if _id is not None:
+            return _id
+
+    # Still no luck? Let's raise an informative exception!
+
+    # This happens if all keys are unset
+    if not error_list:
+        raise KeyError('dictionary must contain at least one'
+                       'of the following keys: ' + str(keys))
+
+    # This happens if at least one key is set, but does not contain a valid ID
+    raise ValueError('could not find object ID in ' + ', '.join(error_list))
 
 
 def get_id_from_string(string):
